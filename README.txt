@@ -1,16 +1,16 @@
-Houston Trailblazers Pro Website
+Houston Trailblazers Website With Editable Registration
 
 Files included:
 - index.html
 - styles.css
 - trailblazer-theme.png
+- trailblazer-logo.png
 
-How to use:
-1. Upload all files to your website host.
-2. Make sure index.html is in the public/root folder.
-3. Connect your domain HoustonTrailblazers.org to your hosting provider.
-4. Update contact email, phone, or registration links inside index.html if needed.
+Updates:
+- Added lightning bolt logo to the website.
+- Added an editable online player registration form.
+- Form includes player, parent/guardian, emergency contact, medical, uniform, waiver, and signature fields.
+- Submit button sends the form using mailto to coachjackson@houstontrailblazer.org.
 
-Suggested emails:
-info@houstontrailblazers.org
-registration@houstontrailblazers.org
+Important:
+This version uses mailto. When a parent clicks Submit Registration, their email app opens with the form details addressed to coachjackson@houstontrailblazer.org. For automatic submission without opening email, connect the form to Formspree, Netlify Forms, Jotform, or a hosting form handler.

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -23,26 +24,29 @@
         </div>
       </div>
 
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#training">Training</a></li>
-        <li><a href="#registration">Register</a></li>
-        <li><a href="#payment">Payment</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+```
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#training">Training</a></li>
+    <li><a href="#registration">Register</a></li>
+    <li><a href="#payment">Payment</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-    <section class="hero-content">
-      <img src="trailblazer-logo.png" alt="Houston Trailblazers logo" class="hero-logo" />
-      <p class="eyebrow">Built Different. Built Houston.</p>
-      <h2>Houston Trailblazers Football</h2>
-      <p class="tagline">Speed. Power. Discipline. Leadership.</p>
+<section class="hero-content">
+  <img src="trailblazer-logo.png" alt="Houston Trailblazers logo" class="hero-logo" />
+  <p class="eyebrow">Built Different. Built Houston.</p>
+  <h2>Houston Trailblazers Football</h2>
+  <p class="tagline">Speed. Power. Discipline. Leadership.</p>
 
-      <div class="hero-buttons">
-        <a href="#registration" class="btn primary">Register Player</a>
-        <a href="#payment" class="btn secondary">Pay Fee</a>
-      </div>
-    </section>
+  <div class="hero-buttons">
+    <a href="#registration" class="btn primary">Register Player</a>
+    <a href="#payment" class="btn secondary">Pay Fee</a>
+  </div>
+</section>
+```
+
   </header>
 
   <main>
@@ -58,233 +62,256 @@
       </div>
     </section>
 
-    <section id="training" class="section dark-section">
-      <p class="eyebrow">Training Schedule</p>
-      <h2>Speed & Agility Camp</h2>
+```
+<section id="training" class="section dark-section">
+  <p class="eyebrow">Training Schedule</p>
+  <h2>Speed & Agility Camp</h2>
 
-      <div class="training-grid">
-        <div class="info-card">
-          <h3>Weekly Training</h3>
-          <p><strong>Days:</strong> Tuesday & Wednesday</p>
-          <p><strong>Time:</strong> 6:00 PM – 7:30 PM</p>
-          <p><strong>Location:</strong> Klein Forest High School</p>
-          <p><strong>Address:</strong> 11400 Misty Valley Dr., Houston, TX 77066</p>
-        </div>
+  <div class="training-grid">
+    <div class="info-card">
+      <h3>Weekly Training</h3>
+      <p><strong>Days:</strong> Tuesday & Wednesday</p>
+      <p><strong>Time:</strong> 6:00 PM – 7:30 PM</p>
+      <p><strong>Location:</strong> Klein Forest High School</p>
+      <p><strong>Address:</strong> 11400 Misty Valley Dr., Houston, TX 77066</p>
+    </div>
 
-        <div class="info-card gold">
-          <h3>Camp Focus</h3>
-          <p>Speed, footwork, agility, conditioning, strength, discipline, teamwork, and football fundamentals.</p>
+    <div class="info-card gold">
+      <h3>Camp Focus</h3>
+      <p>Speed, footwork, agility, conditioning, strength, discipline, teamwork, and football fundamentals.</p>
+    </div>
+  </div>
+</section>
+
+<section id="registration" class="section registration-section">
+  <p class="eyebrow">Step 1</p>
+  <h2>Secure Player Registration</h2>
+
+  <p class="wide">
+    Please complete the registration form first. Do not enter credit card information here.
+    Payment is completed separately through PayPal below.
+  </p>
+
+  <form
+    class="registration-form"
+    action="https://formspree.io/f/xbdvljyr"
+    method="POST"
+  >
+    <input type="hidden" name="Organization" value="Houston Trailblazers Youth Football">
+    <input type="hidden" name="Registration Fee" value="$160">
+    <input type="hidden" name="Season" value="Fall 2026">
+    <input type="text" name="_gotcha" style="display:none">
+
+    <div class="form-grid">
+      <div class="form-panel">
+        <h3>Player Information</h3>
+
+        <label>
+          Player Name
+          <input type="text" name="Player Name" required>
+        </label>
+
+        <label>
+          Date of Birth
+          <input type="date" name="Date of Birth" required>
+        </label>
+
+        <label>
+          School
+          <input type="text" name="School">
+        </label>
+
+        <label>
+          Age Division
+          <select name="Age Division" required>
+            <option value="">Select Division</option>
+            <option value="6U">6U</option>
+            <option value="8U">8U</option>
+            <option value="10U">10U</option>
+            <option value="12U">12U</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="form-panel">
+        <h3>Parent / Guardian Information</h3>
+
+        <label>
+          Parent / Guardian Name
+          <input type="text" name="Parent Guardian Name" required>
+        </label>
+
+        <label>
+          Phone Number
+          <input type="tel" name="Parent Phone" required>
+        </label>
+
+        <label>
+          Email Address
+          <input type="email" name="Parent Email" required>
+        </label>
+
+        <label>
+          Address
+          <input type="text" name="Address">
+        </label>
+
+        <div class="three-col">
+          <label>City <input type="text" name="City"></label>
+          <label>State <input type="text" name="State"></label>
+          <label>Zip <input type="text" name="Zip"></label>
         </div>
       </div>
-    </section>
 
-    <section id="registration" class="section registration-section">
-      <p class="eyebrow">Step 1</p>
-      <h2>Secure Player Registration</h2>
+      <div class="form-panel">
+        <h3>Emergency Contact</h3>
 
-      <p class="wide">
-        Please complete the registration form first. Do not enter credit card information here.
-        Payment is completed separately through PayPal below.
-      </p>
+        <label>
+          Emergency Contact Name
+          <input type="text" name="Emergency Contact Name" required>
+        </label>
 
-     https://formspree.io/f/xbdvljyr
-      <form
-        class="registration-form"
-        action="https://formspree.io/f/YOUR_FORM_ID"
-        method="POST"
-      >
-        <input type="hidden" name="Organization" value="Houston Trailblazers Youth Football">
-        <input type="hidden" name="Registration Fee" value="$160">
-        <input type="hidden" name="Season" value="Fall 2026">
+        <label>
+          Relationship
+          <input type="text" name="Emergency Relationship">
+        </label>
 
-        <div class="form-grid">
-          <div class="form-panel">
-            <h3>Player Information</h3>
-
-            <label>
-              Player Name
-              <input type="text" name="Player Name" required>
-            </label>
-
-            <label>
-              Date of Birth
-              <input type="date" name="Date of Birth" required>
-            </label>
-
-            <label>
-              School
-              <input type="text" name="School">
-            </label>
-
-            <label>
-              Age Division
-              <select name="Age Division" required>
-                <option value="">Select Division</option>
-                <option value="6U">6U</option>
-                <option value="8U">8U</option>
-                <option value="10U">10U</option>
-                <option value="12U">12U</option>
-              </select>
-            </label>
-          </div>
-
-          <div class="form-panel">
-            <h3>Parent / Guardian Information</h3>
-
-            <label>
-              Parent / Guardian Name
-              <input type="text" name="Parent Guardian Name" required>
-            </label>
-
-            <label>
-              Phone Number
-              <input type="tel" name="Parent Phone" required>
-            </label>
-
-            <label>
-              Email Address
-              <input type="email" name="Parent Email" required>
-            </label>
-
-            <label>
-              Address
-              <input type="text" name="Address">
-            </label>
-
-            <div class="three-col">
-              <label>City <input type="text" name="City"></label>
-              <label>State <input type="text" name="State"></label>
-              <label>Zip <input type="text" name="Zip"></label>
-            </div>
-          </div>
-
-          <div class="form-panel">
-            <h3>Emergency Contact</h3>
-
-            <label>
-              Emergency Contact Name
-              <input type="text" name="Emergency Contact Name" required>
-            </label>
-
-            <label>
-              Relationship
-              <input type="text" name="Emergency Relationship">
-            </label>
-
-            <label>
-              Phone Number
-              <input type="tel" name="Emergency Phone" required>
-            </label>
-          </div>
-
-          <div class="form-panel">
-            <h3>Medical Information</h3>
-
-            <label>
-              Allergies
-              <input type="text" name="Allergies">
-            </label>
-
-            <label>
-              Medical Conditions
-              <input type="text" name="Medical Conditions">
-            </label>
-
-            <label>
-              Doctor Name / Phone
-              <input type="text" name="Doctor Name Phone">
-            </label>
-          </div>
-
-          <div class="form-panel">
-            <h3>Uniform Information</h3>
-
-            <label>
-              Jersey Size
-              <select name="Jersey Size" required>
-                <option value="">Select Size</option>
-                <option value="YS">YS</option>
-                <option value="YM">YM</option>
-                <option value="YL">YL</option>
-                <option value="YXL">YXL</option>
-              </select>
-            </label>
-
-            <label>
-              Additional Notes
-              <textarea name="Additional Notes" rows="4"></textarea>
-            </label>
-          </div>
-
-          <div class="form-panel waiver">
-            <h3>Waiver & Agreement</h3>
-
-            <p>
-              I acknowledge that participation in football includes risk of injury.
-              I release Houston Trailblazers Youth Football, coaches, and staff from
-              liability to the fullest extent allowed by law.
-            </p>
-
-            <label>
-              Parent / Guardian Signature
-              <input type="text" name="Parent Guardian Signature" required>
-            </label>
-
-            <label>
-              Date
-              <input type="date" name="Signature Date" required>
-            </label>
-
-            <label class="agreement-check">
-              <input type="checkbox" name="Agreement Accepted" value="Yes" required>
-              I agree to the waiver and agreement.
-            </label>
-          </div>
-        </div>
-
-        <div class="registration-summary">
-          <div><strong>Registration Fee:</strong> $160</div>
-          <div><strong>Uniform Included:</strong> Yes</div>
-          <div><strong>Ages:</strong> 5–12</div>
-          <div><strong>Season:</strong> Fall 2026</div>
-        </div>
-
-        <button type="submit" class="btn primary form-submit">
-          Submit Registration
-        </button>
-      </form>
-    </section>
-
-    <section id="payment" class="section payment-section">
-      <p class="eyebrow">Step 2</p>
-      <h2>Secure PayPal Payment</h2>
-
-      <p class="wide">
-        After submitting registration, complete the $160 payment below.
-        Payment is processed by PayPal. Do not send card numbers by email or through the registration form.
-      </p>
-
-      <div id="paypal-button-container"></div>
-    </section>
-
-    <section id="contact" class="section contact-section">
-      <p class="eyebrow">Contact</p>
-      <h2>Get Connected</h2>
-
-      <div class="contact-grid">
-        <div>
-          <h3>Coach Jackson</h3>
-          <p><a href="tel:5617636078">561-763-6078</a></p>
-          <p><a href="mailto:coachjackson@houstontrailblazer.org">coachjackson@houstontrailblazer.org</a></p>
-        </div>
-
-        <div>
-          <h3>Practice Location</h3>
-          <p>Klein Forest High School</p>
-          <p>11400 Misty Valley Dr.<br>Houston, TX 77066</p>
-        </div>
+        <label>
+          Phone Number
+          <input type="tel" name="Emergency Phone" required>
+        </label>
       </div>
-    </section>
+
+      <div class="form-panel">
+        <h3>Medical Information</h3>
+
+        <label>
+          Allergies
+          <input type="text" name="Allergies">
+        </label>
+
+        <label>
+          Medical Conditions
+          <input type="text" name="Medical Conditions">
+        </label>
+
+        <label>
+          Doctor Name / Phone
+          <input type="text" name="Doctor Name Phone">
+        </label>
+      </div>
+
+      <div class="form-panel">
+        <h3>Uniform Information</h3>
+
+        <label>
+          Jersey Size
+          <select name="Jersey Size" required>
+            <option value="">Select Jersey Size</option>
+            <option value="YS">Youth Small</option>
+            <option value="YM">Youth Medium</option>
+            <option value="YL">Youth Large</option>
+            <option value="YXL">Youth XL</option>
+            <option value="AS">Adult Small</option>
+            <option value="AM">Adult Medium</option>
+            <option value="AL">Adult Large</option>
+            <option value="AXL">Adult XL</option>
+          </select>
+        </label>
+
+        <label>
+          Pants Size
+          <select name="Pants Size" required>
+            <option value="">Select Pants Size</option>
+            <option value="YXS">Youth XS</option>
+            <option value="YS">Youth Small</option>
+            <option value="YM">Youth Medium</option>
+            <option value="YL">Youth Large</option>
+            <option value="YXL">Youth XL</option>
+            <option value="AS">Adult Small</option>
+            <option value="AM">Adult Medium</option>
+            <option value="AL">Adult Large</option>
+            <option value="AXL">Adult XL</option>
+          </select>
+        </label>
+
+        <label>
+          Additional Notes
+          <textarea name="Additional Notes" rows="4"></textarea>
+        </label>
+      </div>
+
+      <div class="form-panel waiver">
+        <h3>Waiver & Agreement</h3>
+
+        <p>
+          I acknowledge that participation in football includes risk of injury.
+          I release Houston Trailblazers Youth Football, coaches, and staff from
+          liability to the fullest extent allowed by law.
+        </p>
+
+        <label>
+          Parent / Guardian Signature
+          <input type="text" name="Parent Guardian Signature" required>
+        </label>
+
+        <label>
+          Date
+          <input type="date" name="Signature Date" required>
+        </label>
+
+        <label class="agreement-check">
+          <input type="checkbox" name="Agreement Accepted" value="Yes" required>
+          I agree to the waiver and agreement.
+        </label>
+      </div>
+    </div>
+
+    <div class="registration-summary">
+      <div><strong>Registration Fee:</strong> $160</div>
+      <div><strong>Uniform Included:</strong> Yes</div>
+      <div><strong>Ages:</strong> 5–12</div>
+      <div><strong>Season:</strong> Fall 2026</div>
+    </div>
+
+    <button type="submit" class="btn primary form-submit">
+      Submit Registration
+    </button>
+  </form>
+</section>
+
+<section id="payment" class="section payment-section">
+  <p class="eyebrow">Step 2</p>
+  <h2>Secure PayPal Payment</h2>
+
+  <p class="wide">
+    After submitting registration, complete the $160 payment below.
+    Payment is processed by PayPal. Do not send card numbers by email or through the registration form.
+  </p>
+
+  <div id="paypal-button-container"></div>
+</section>
+
+<section id="contact" class="section contact-section">
+  <p class="eyebrow">Contact</p>
+  <h2>Get Connected</h2>
+
+  <div class="contact-grid">
+    <div>
+      <h3>Coach Jackson</h3>
+      <p><a href="tel:5617636078">561-763-6078</a></p>
+      <p><a href="mailto:coachjackson@houstontrailblazer.org">coachjackson@houstontrailblazer.org</a></p>
+    </div>
+
+    <div>
+      <h3>Practice Location</h3>
+      <p>Klein Forest High School</p>
+      <p>11400 Misty Valley Dr.<br>Houston, TX 77066</p>
+    </div>
+  </div>
+</section>
+```
+
   </main>
 
   <footer>
@@ -292,8 +319,8 @@
     <p>Train like a champion. Play like a Trailblazer.</p>
   </footer>
 
-  <!-- Replace YOUR_PAYPAL_CLIENT_ID with your real PayPal client ID -->
- Acv0w9xMcOknPUM5FZYa0N9ZdcbRr0hcrhKHp_0MSgytZqYq0q6jRSs2gYLivgMF7_jyKNIc-WQkNfKS
+  <script src="https://www.paypal.com/sdk/js?client-id=Acv0w9xMcOknPUM5FZYa0N9ZdcbRr0hcrhKHp_0MSgytZqYq0q6jRSs2gYLivgMF7_jyKNIc-WQkNfKS&components=buttons&enable-funding=venmo&currency=USD"></script>
+
   <script>
     paypal.Buttons({
       style: {
@@ -326,5 +353,6 @@
       }
     }).render("#paypal-button-container");
   </script>
+
 </body>
 </html>

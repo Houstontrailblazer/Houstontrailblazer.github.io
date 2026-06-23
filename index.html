@@ -3,24 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Houston Trailblazers Youth Football</title>
+
+  <title>Houston Trailblazers Youth Football | Registration</title>
+
+  <meta name="description" content="Houston Trailblazers Youth Football registration, speed and agility camp, training schedule, and secure PayPal payment." />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <header class="hero">
     <nav class="navbar">
       <div class="logo">
-        <img src="trailblazer-logo.png" alt="Houston Trailblazers lightning bolt logo" class="logo-img" />
+        <img src="trailblazer-logo.png" alt="Houston Trailblazers logo" class="logo-img" />
         <div>
           <h1>Houston Trailblazers</h1>
           <p>Youth Football Organization</p>
         </div>
       </div>
+
       <ul>
         <li><a href="#about">About</a></li>
-        <li><a href="#mission">Mission</a></li>
         <li><a href="#training">Training</a></li>
-        <li><a href="#registration">Registration</a></li>
+        <li><a href="#registration">Register</a></li>
+        <li><a href="#payment">Payment</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -28,11 +35,12 @@
     <section class="hero-content">
       <img src="trailblazer-logo.png" alt="Houston Trailblazers logo" class="hero-logo" />
       <p class="eyebrow">Built Different. Built Houston.</p>
-      <h2>Speed & Agility Camp</h2>
-      <p class="tagline">Faster. Stronger. Sharper. Built for greatness.</p>
+      <h2>Houston Trailblazers Football</h2>
+      <p class="tagline">Speed. Power. Discipline. Leadership.</p>
+
       <div class="hero-buttons">
-        <a href="#registration" class="btn primary">Register Now</a>
-        <a href="#training" class="btn secondary">View Training</a>
+        <a href="#registration" class="btn primary">Register Player</a>
+        <a href="#payment" class="btn secondary">Pay Fee</a>
       </div>
     </section>
   </header>
@@ -40,42 +48,20 @@
   <main>
     <section id="about" class="section about">
       <div class="section-text">
-        <p class="eyebrow">About The Program</p>
-        <h2>More Than Football</h2>
+        <p class="eyebrow">More Than Football</p>
+        <h2>Built Like A Pro Program</h2>
         <p>
-          The Houston Trailblazers Youth Football Organization is built to help young athletes grow
-          through discipline, teamwork, leadership, confidence, and hard work. Our program creates a
-          competitive but positive environment where players can develop their athletic ability while
-          learning life lessons that carry beyond the field.
+          Houston Trailblazers Youth Football develops young athletes through discipline,
+          teamwork, speed, agility, confidence, and leadership. Our goal is to help every
+          player grow on and off the field.
         </p>
-        <p>
-          We are committed to helping every athlete become faster, stronger, sharper, and more prepared
-          for the season ahead.
-        </p>
-      </div>
-      <div class="theme-card">
-        <img src="trailblazer-theme.png" alt="Houston Trailblazers football flyer theme" />
       </div>
     </section>
 
-    <section id="mission" class="section dark-section">
-      <p class="eyebrow">Our Mission</p>
-      <h2>Building Future Leaders</h2>
-      <p class="wide">
-        Our mission is to develop young athletes into confident leaders both on and off the field through
-        discipline, teamwork, character, mentorship, and elite-level training. We strive to create a family
-        atmosphere where every child is challenged, encouraged, and prepared for success in football,
-        school, and life.
-      </p>
-      <div class="slogans">
-        <span>Pressure Creates Legends.</span>
-        <span>We Don’t Follow. We Lead.</span>
-      </div>
-    </section>
-
-    <section id="training" class="section">
+    <section id="training" class="section dark-section">
       <p class="eyebrow">Training Schedule</p>
-      <h2>Speed. Agility. Strength. Focus.</h2>
+      <h2>Speed & Agility Camp</h2>
+
       <div class="training-grid">
         <div class="info-card">
           <h3>Weekly Training</h3>
@@ -84,42 +70,87 @@
           <p><strong>Location:</strong> Klein Forest High School</p>
           <p><strong>Address:</strong> 11400 Misty Valley Dr., Houston, TX 77066</p>
         </div>
+
         <div class="info-card gold">
           <h3>Camp Focus</h3>
-          <p>Speed mechanics, footwork, agility, conditioning, strength, discipline, teamwork, confidence, and football fundamentals.</p>
+          <p>Speed, footwork, agility, conditioning, strength, discipline, teamwork, and football fundamentals.</p>
         </div>
       </div>
     </section>
 
-    
-<section id="registration" class="section registration-section">
-      <p class="eyebrow">Online Registration</p>
-      <h2>Player Registration Form</h2>
+    <section id="registration" class="section registration-section">
+      <p class="eyebrow">Step 1</p>
+      <h2>Secure Player Registration</h2>
+
       <p class="wide">
-        Parents can complete this editable online form. When submitted, it will open an email addressed to
-        Coach Jackson with the registration details included.
+        Please complete the registration form first. Do not enter credit card information here.
+        Payment is completed separately through PayPal below.
       </p>
 
-      <form class="registration-form" action="mailto:coachjackson@houstontrailblazer.org" method="post" enctype="text/plain">
+      <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
+      <form
+        class="registration-form"
+        action="https://formspree.io/f/YOUR_FORM_ID"
+        method="POST"
+      >
+        <input type="hidden" name="Organization" value="Houston Trailblazers Youth Football">
+        <input type="hidden" name="Registration Fee" value="$160">
+        <input type="hidden" name="Season" value="Fall 2026">
+
         <div class="form-grid">
           <div class="form-panel">
-            <h3>1. Player Information</h3>
-            <label>Player Name <input type="text" name="Player Name" required></label>
-            <label>Date of Birth <input type="date" name="Date of Birth" required></label>
-            <label>School <input type="text" name="School"></label>
-            <div class="check-row">
-              <span>Age Division</span>
-              <label><input type="checkbox" name="Age Division" value="6U"> 6U</label>
-              <label><input type="checkbox" name="Age Division" value="8U"> 8U</label>
-                <label><input type="checkbox" name="Age Division" value="10U"> 10U</label>                <label><input type="checkbox" name="Age Division" value="12U"> 12U</label>            </div>
+            <h3>Player Information</h3>
+
+            <label>
+              Player Name
+              <input type="text" name="Player Name" required>
+            </label>
+
+            <label>
+              Date of Birth
+              <input type="date" name="Date of Birth" required>
+            </label>
+
+            <label>
+              School
+              <input type="text" name="School">
+            </label>
+
+            <label>
+              Age Division
+              <select name="Age Division" required>
+                <option value="">Select Division</option>
+                <option value="6U">6U</option>
+                <option value="8U">8U</option>
+                <option value="10U">10U</option>
+                <option value="12U">12U</option>
+              </select>
+            </label>
           </div>
 
           <div class="form-panel">
-            <h3>2. Parent / Guardian Information</h3>
-            <label>Parent / Guardian Name <input type="text" name="Parent Guardian Name" required></label>
-            <label>Phone Number <input type="tel" name="Parent Phone" required></label>
-            <label>Email Address <input type="email" name="Parent Email" required></label>
-            <label>Address <input type="text" name="Address"></label>
+            <h3>Parent / Guardian Information</h3>
+
+            <label>
+              Parent / Guardian Name
+              <input type="text" name="Parent Guardian Name" required>
+            </label>
+
+            <label>
+              Phone Number
+              <input type="tel" name="Parent Phone" required>
+            </label>
+
+            <label>
+              Email Address
+              <input type="email" name="Parent Email" required>
+            </label>
+
+            <label>
+              Address
+              <input type="text" name="Address">
+            </label>
+
             <div class="three-col">
               <label>City <input type="text" name="City"></label>
               <label>State <input type="text" name="State"></label>
@@ -128,80 +159,125 @@
           </div>
 
           <div class="form-panel">
-            <h3>3. Emergency Contact</h3>
-            <label>Emergency Contact Name <input type="text" name="Emergency Contact Name" required></label>
-            <label>Relationship <input type="text" name="Emergency Relationship"></label>
-            <label>Phone Number <input type="tel" name="Emergency Phone" required></label>
+            <h3>Emergency Contact</h3>
+
+            <label>
+              Emergency Contact Name
+              <input type="text" name="Emergency Contact Name" required>
+            </label>
+
+            <label>
+              Relationship
+              <input type="text" name="Emergency Relationship">
+            </label>
+
+            <label>
+              Phone Number
+              <input type="tel" name="Emergency Phone" required>
+            </label>
           </div>
 
           <div class="form-panel">
-            <h3>4. Medical Information</h3>
-            <label>Any Allergies? <input type="text" name="Allergies"></label>
-            <label>Medical Conditions? <input type="text" name="Medical Conditions"></label>
-            <label>Doctor Name / Phone <input type="text" name="Doctor Name Phone"></label>
+            <h3>Medical Information</h3>
+
+            <label>
+              Allergies
+              <input type="text" name="Allergies">
+            </label>
+
+            <label>
+              Medical Conditions
+              <input type="text" name="Medical Conditions">
+            </label>
+
+            <label>
+              Doctor Name / Phone
+              <input type="text" name="Doctor Name Phone">
+            </label>
           </div>
 
           <div class="form-panel">
-            <h3>5. Uniform Information</h3>
-            <div class="check-row">
-              <span>Jersey Size</span>
-              <label><input type="radio" name="Jersey Size" value="YS"> YS</label>
-              <label><input type="radio" name="Jersey Size" value="YM"> YM</label>
-              <label><input type="radio" name="Jersey Size" value="YL"> YL</label>
-              <label><input type="radio" name="Jersey Size" value="YXL"> YXL</label>
-            </div>
-            <label>Additional Notes <textarea name="Additional Notes" rows="4"></textarea></label>
+            <h3>Uniform Information</h3>
+
+            <label>
+              Jersey Size
+              <select name="Jersey Size" required>
+                <option value="">Select Size</option>
+                <option value="YS">YS</option>
+                <option value="YM">YM</option>
+                <option value="YL">YL</option>
+                <option value="YXL">YXL</option>
+              </select>
+            </label>
+
+            <label>
+              Additional Notes
+              <textarea name="Additional Notes" rows="4"></textarea>
+            </label>
           </div>
 
           <div class="form-panel waiver">
             <h3>Waiver & Agreement</h3>
+
             <p>
-              I acknowledge that participation in football includes risk of injury. I release Houston Trailblazer
-              Football, coaches, and staff from any and all liability.
+              I acknowledge that participation in football includes risk of injury.
+              I release Houston Trailblazers Youth Football, coaches, and staff from
+              liability to the fullest extent allowed by law.
             </p>
-            <label>Parent / Guardian Signature <input type="text" name="Parent Guardian Signature" required></label>
-            <label>Date <input type="date" name="Signature Date" required></label>
-            <label class="agreement-check"><input type="checkbox" name="Agreement Accepted" value="Yes" required> I agree to the waiver and agreement.</label>
+
+            <label>
+              Parent / Guardian Signature
+              <input type="text" name="Parent Guardian Signature" required>
+            </label>
+
+            <label>
+              Date
+              <input type="date" name="Signature Date" required>
+            </label>
+
+            <label class="agreement-check">
+              <input type="checkbox" name="Agreement Accepted" value="Yes" required>
+              I agree to the waiver and agreement.
+            </label>
           </div>
         </div>
 
         <div class="registration-summary">
           <div><strong>Registration Fee:</strong> $160</div>
-          <div><strong>Uniforms Included:</strong> Yes</div>
-          <div><strong>Ages:</strong> 5-12</div>
+          <div><strong>Uniform Included:</strong> Yes</div>
+          <div><strong>Ages:</strong> 5–12</div>
           <div><strong>Season:</strong> Fall 2026</div>
         </div>
 
-        <button type="submit" class="btn primary form-submit">Submit Registration</button>
-        1
-<script 
-2
-  src="https://www.paypal.com/sdk/js?client-id=BAAI1ZzU2xF0SUr75LptS-IybKX7-pyETUVPQMi01kfpNl3iYuAsQBPid1e5atV7IFI5DoHzEtmttcw6KY&components=hosted-buttons&enable-funding=venmo&currency=USD">
-3
-</script>      </form>
+        <button type="submit" class="btn primary form-submit">
+          Submit Registration
+        </button>
+      </form>
     </section>
 
-    <section id="values" class="section">
-      <p class="eyebrow">Core Values</p>
-      <h2>What We Stand On</h2>
-      <div class="values-grid">
-        <div class="value"><span>⚡</span><h3>Speed</h3><p>We train with purpose and intensity.</p></div>
-        <div class="value"><span>🛡️</span><h3>Discipline</h3><p>We show up prepared and accountable.</p></div>
-        <div class="value"><span>💪</span><h3>Strength</h3><p>We build physical and mental toughness.</p></div>
-        <div class="value"><span>🧠</span><h3>Focus</h3><p>We stay locked in on improvement.</p></div>
-        <div class="value"><span>⭐</span><h3>Leadership</h3><p>We lead by example on and off the field.</p></div>
-      </div>
+    <section id="payment" class="section payment-section">
+      <p class="eyebrow">Step 2</p>
+      <h2>Secure PayPal Payment</h2>
+
+      <p class="wide">
+        After submitting registration, complete the $160 payment below.
+        Payment is processed by PayPal. Do not send card numbers by email or through the registration form.
+      </p>
+
+      <div id="paypal-button-container"></div>
     </section>
 
     <section id="contact" class="section contact-section">
       <p class="eyebrow">Contact</p>
       <h2>Get Connected</h2>
+
       <div class="contact-grid">
         <div>
           <h3>Coach Jackson</h3>
           <p><a href="tel:5617636078">561-763-6078</a></p>
           <p><a href="mailto:coachjackson@houstontrailblazer.org">coachjackson@houstontrailblazer.org</a></p>
         </div>
+
         <div>
           <h3>Practice Location</h3>
           <p>Klein Forest High School</p>
@@ -215,5 +291,41 @@
     <p>© 2026 Houston Trailblazers Youth Football Organization</p>
     <p>Train like a champion. Play like a Trailblazer.</p>
   </footer>
+
+  <!-- Replace YOUR_PAYPAL_CLIENT_ID with your real PayPal client ID -->
+  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&components=buttons&enable-funding=venmo&currency=USD"></script>
+
+  <script>
+    paypal.Buttons({
+      style: {
+        layout: "vertical",
+        color: "gold",
+        shape: "rect",
+        label: "pay"
+      },
+
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            description: "Houston Trailblazers Youth Football Registration Fee",
+            amount: {
+              value: "160.00"
+            }
+          }]
+        });
+      },
+
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert("Payment completed. Thank you, " + details.payer.name.given_name + "!");
+        });
+      },
+
+      onError: function(err) {
+        alert("There was a problem processing the payment. Please try again or contact Coach Jackson.");
+        console.error(err);
+      }
+    }).render("#paypal-button-container");
+  </script>
 </body>
 </html>

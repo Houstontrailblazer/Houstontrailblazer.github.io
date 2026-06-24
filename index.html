@@ -88,11 +88,14 @@
   <h2>Secure Player Registration</h2>
 
   <p class="wide">
-    Please complete the registration form first. Do not enter credit card information here.
-    Payment is completed separately through PayPal below.
+    Complete the registration form first. After you submit, the payment button will appear below.
   </p>
 
-  <form class="registration-form" action="https://formspree.io/f/xbdvljyr" method="POST">
+  <div id="form-message" style="display:none; padding:15px; margin-bottom:20px; background:#f5b301; color:#020713; font-weight:bold; border-radius:8px;">
+    Registration submitted successfully. Please complete payment below.
+  </div>
+
+  <form id="registrationForm" class="registration-form" action="https://formspree.io/f/xbdvljyr" method="POST">
     <input type="hidden" name="Organization" value="Houston Trailblazers Youth Football">
     <input type="hidden" name="Registration Fee" value="$160">
     <input type="hidden" name="Season" value="Fall 2026">
@@ -102,23 +105,19 @@
       <div class="form-panel">
         <h3>Player Information</h3>
 
-        <label>
-          Player Name
+        <label>Player Name
           <input type="text" name="Player Name" required>
         </label>
 
-        <label>
-          Date of Birth
+        <label>Date of Birth
           <input type="date" name="Date of Birth" required>
         </label>
 
-        <label>
-          School
+        <label>School
           <input type="text" name="School">
         </label>
 
-        <label>
-          Age Division
+        <label>Age Division
           <select name="Age Division" required>
             <option value="">Select Division</option>
             <option value="6U">6U</option>
@@ -132,23 +131,19 @@
       <div class="form-panel">
         <h3>Parent / Guardian Information</h3>
 
-        <label>
-          Parent / Guardian Name
+        <label>Parent / Guardian Name
           <input type="text" name="Parent Guardian Name" required>
         </label>
 
-        <label>
-          Phone Number
+        <label>Phone Number
           <input type="tel" name="Parent Phone" required>
         </label>
 
-        <label>
-          Email Address
+        <label>Email Address
           <input type="email" name="Parent Email" required>
         </label>
 
-        <label>
-          Address
+        <label>Address
           <input type="text" name="Address">
         </label>
 
@@ -162,18 +157,15 @@
       <div class="form-panel">
         <h3>Emergency Contact</h3>
 
-        <label>
-          Emergency Contact Name
+        <label>Emergency Contact Name
           <input type="text" name="Emergency Contact Name" required>
         </label>
 
-        <label>
-          Relationship
+        <label>Relationship
           <input type="text" name="Emergency Relationship">
         </label>
 
-        <label>
-          Phone Number
+        <label>Phone Number
           <input type="tel" name="Emergency Phone" required>
         </label>
       </div>
@@ -181,18 +173,15 @@
       <div class="form-panel">
         <h3>Medical Information</h3>
 
-        <label>
-          Allergies
+        <label>Allergies
           <input type="text" name="Allergies">
         </label>
 
-        <label>
-          Medical Conditions
+        <label>Medical Conditions
           <input type="text" name="Medical Conditions">
         </label>
 
-        <label>
-          Doctor Name / Phone
+        <label>Doctor Name / Phone
           <input type="text" name="Doctor Name Phone">
         </label>
       </div>
@@ -200,8 +189,7 @@
       <div class="form-panel">
         <h3>Uniform Information</h3>
 
-        <label>
-          Jersey Size
+        <label>Jersey Size
           <select name="Jersey Size" required>
             <option value="">Select Jersey Size</option>
             <option value="YS">Youth Small</option>
@@ -215,8 +203,7 @@
           </select>
         </label>
 
-        <label>
-          Pants Size
+        <label>Pants Size
           <select name="Pants Size" required>
             <option value="">Select Pants Size</option>
             <option value="YXS">Youth XS</option>
@@ -231,8 +218,21 @@
           </select>
         </label>
 
-        <label>
-          Additional Notes
+        <label>T-Shirt Size
+          <select name="T-Shirt Size">
+            <option value="">Select T-Shirt Size</option>
+            <option value="YS">Youth Small</option>
+            <option value="YM">Youth Medium</option>
+            <option value="YL">Youth Large</option>
+            <option value="YXL">Youth XL</option>
+            <option value="AS">Adult Small</option>
+            <option value="AM">Adult Medium</option>
+            <option value="AL">Adult Large</option>
+            <option value="AXL">Adult XL</option>
+          </select>
+        </label>
+
+        <label>Additional Notes
           <textarea name="Additional Notes" rows="4"></textarea>
         </label>
       </div>
@@ -247,12 +247,19 @@
         </p>
 
         <label>
-          Parent / Guardian Signature
+          <input type="checkbox" name="Social Media Consent" value="Yes">
+          I allow Houston Trailblazers to use photos/videos for promotional purposes.
+        </label>
+
+        <label>Parent / Guardian Initials
+          <input type="text" name="Social Media Consent Initials">
+        </label>
+
+        <label>Parent / Guardian Signature
           <input type="text" name="Parent Guardian Signature" required>
         </label>
 
-        <label>
-          Date
+        <label>Date
           <input type="date" name="Signature Date" required>
         </label>
 
@@ -271,18 +278,18 @@
     </div>
 
     <button type="submit" class="btn primary form-submit">
-      Submit Registration
+      Submit Registration & Continue to Payment
     </button>
   </form>
 </section>
 
-<section id="payment" class="section payment-section">
+<section id="payment" class="section payment-section" style="display:none;">
   <p class="eyebrow">Step 2</p>
   <h2>Secure PayPal Payment</h2>
 
   <p class="wide">
-    After submitting registration, complete the $160 payment below.
-    Payment is processed by PayPal. Do not send card numbers by email or through the registration form.
+    Your registration has been submitted. Please complete the $160 payment below.
+    Payment is processed securely by PayPal.
   </p>
 
   <div id="paypal-button-container"></div>
@@ -318,6 +325,45 @@
   <script src="https://www.paypal.com/sdk/js?client-id=Acv0w9xMcOknPUM5FZYa0N9ZdcbRr0hcrhKHp_0MSgytZqYq0q6jRSs2gYLivgMF7_jyKNIc-WQkNfKS&components=buttons&enable-funding=venmo&currency=USD"></script>
 
   <script>
+    const form = document.getElementById("registrationForm");
+    const formMessage = document.getElementById("form-message");
+    const paymentSection = document.getElementById("payment");
+
+    form.addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      const submitButton = form.querySelector("button[type='submit']");
+      submitButton.disabled = true;
+      submitButton.innerText = "Submitting Registration...";
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            "Accept": "application/json"
+          }
+        });
+
+        if (response.ok) {
+          formMessage.style.display = "block";
+          form.style.display = "none";
+          paymentSection.style.display = "block";
+          paymentSection.scrollIntoView({ behavior: "smooth" });
+        } else {
+          alert("Registration did not submit. Please check the form and try again.");
+          submitButton.disabled = false;
+          submitButton.innerText = "Submit Registration & Continue to Payment";
+        }
+      } catch (error) {
+        alert("There was a connection problem. Please try again.");
+        submitButton.disabled = false;
+        submitButton.innerText = "Submit Registration & Continue to Payment";
+      }
+    });
+
     paypal.Buttons({
       style: {
         layout: "vertical",

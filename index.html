@@ -222,7 +222,7 @@ footer b{color:var(--gold)}
     <input type="hidden" name="_subject">
     <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
     <div class="fgrid">
-      <div><label>Program</label><select name="program" required><option value="football">Football</option><option value="cheer">Cheer</option></select></div>
+      <div><label>Program</label><select name="program" required><option value="football">Football, this season</option><option value="cheer">Cheer, this season</option><option value="football_both">Football, Spring &amp; Fall 2027 (both seasons) $400</option><option value="cheer_both">Cheer, Spring &amp; Fall 2027 (both seasons) $500</option></select></div>
       <div class="div-wrap"><label>Football division</label><select name="division"><option>5U Flag Football</option><option>7U Tackle</option><option>9U Tackle</option><option>11U Tackle</option><option>13U Tackle</option></select></div>
       <div><label>Player first name</label><input name="player_first_name" required autocomplete="off"></div>
       <div><label>Player last name</label><input name="player_last_name" required autocomplete="off"></div>
@@ -269,13 +269,16 @@ footer b{color:var(--gold)}
   var PAYPAL_SDK='https://www.paypal.com/sdk/js?client-id=BAAI1ZzU2xF0SUr75LptS-IybKX7-pyETUVPQMi01kfpNl3iYuAsQBPid1e5atV7IFI5DoHzEtmttcw6KY&components=hosted-buttons&enable-funding=venmo&currency=USD';
   // One PayPal hosted button per price. Replace the empty ones when you create them in PayPal.
   var PAY={
-    spring_football:'MYWFZCY5LJFF2',
-    spring_cheer:'8YV7MJ5BV4ZFJ',
-    fall_football:'MYWFZCY5LJFF2',
-    fall_cheer:'8YV7MJ5BV4ZFJ'
+    spring_football:'R374N4S6XML5Y',
+    spring_cheer:'7X76ZJRGJFN4C',
+    fall_football:'SRWQTYS2UAVMA',
+    fall_cheer:'HMB9WLYJH363A',
+    both_football:'MYWFZCY5LJFF2',
+    both_cheer:'8YV7MJ5BV4ZFJ'
   };
-  var PRICE={spring_football:200,spring_cheer:250,fall_football:250,fall_cheer:300};
-  var NAME={spring:'Spring 2027',fall:'Fall 2027'};
+  var PRICE={spring_football:200,spring_cheer:250,fall_football:250,fall_cheer:300,both_football:400,both_cheer:500};
+  var NAME={spring:'Spring 2027',fall:'Fall 2027',both:'Spring & Fall 2027'};
+  function keyOf(season,v){return v.indexOf('_both')>0?'both_'+v.split('_')[0]:season+'_'+v}
   var sdk;
   function loadPayPal(){
     if(sdk)return sdk;
@@ -286,13 +289,13 @@ footer b{color:var(--gold)}
     var season=slot.dataset.season;
     slot.appendChild(document.getElementById('regtpl').content.cloneNode(true));
     var f=slot.querySelector('form'),prog=f.program,divw=slot.querySelector('.div-wrap'),pl=slot.querySelector('.price-line'),err=slot.querySelector('.msg.err');
-    f.season.value=NAME[season];
     function refresh(){
-      var key=season+'_'+prog.value;
-      divw.hidden=prog.value==='cheer';
-      f.division.disabled=prog.value==='cheer';
-      pl.textContent=NAME[season]+' '+(prog.value==='cheer'?'Cheer':'Football')+': $'+PRICE[key];
-      f._subject.value=NAME[season]+' '+prog.value+' registration';
+      var key=keyOf(season,prog.value),base=prog.value.split('_')[0],nm=NAME[key.split('_')[0]];
+      divw.hidden=base==='cheer';
+      f.division.disabled=base==='cheer';
+      f.season.value=nm;
+      pl.textContent=nm+' '+(base==='cheer'?'Cheer':'Football')+': $'+PRICE[key];
+      f._subject.value=nm+' '+base+' registration';
     }
     prog.addEventListener('change',refresh);refresh();
     slot._setProgram=function(v){prog.value=v;refresh()};
@@ -303,10 +306,10 @@ footer b{color:var(--gold)}
       fetch(FORMSPREE,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}}).then(function(r){
         if(!r.ok)throw new Error('send');
         f.hidden=true;
-        var done=slot.querySelector('.done'),box=slot.querySelector('.paybox'),id=PAY[season+'_'+prog.value];
+        var done=slot.querySelector('.done'),box=slot.querySelector('.paybox'),key=keyOf(season,prog.value),id=PAY[key];
         done.hidden=false;
         if(id){
-          var cid='paypal-'+season+'-'+prog.value;box.innerHTML='<div id="'+cid+'"></div>';
+          var cid='paypal-'+season+'-'+key;box.innerHTML='<div id="'+cid+'"></div>';
           loadPayPal().then(function(){paypal.HostedButtons({hostedButtonId:id}).render('#'+cid)}).catch(function(){box.textContent='Payment could not load. Please contact Coach Jackson at 561-763-6078.'});
         }else{box.textContent='We will email you payment instructions within 1 business day.'}
         done.scrollIntoView({behavior:'smooth',block:'center'});

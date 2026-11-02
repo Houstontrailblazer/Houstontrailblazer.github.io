@@ -46,11 +46,27 @@ h2{font-size:clamp(36px,6vw,64px);margin-bottom:10px;text-transform:uppercase}
 .card{background:var(--green);border-top:6px solid var(--gold);padding:22px}
 .card h3{font-size:34px;color:var(--gold);margin-bottom:6px}.card p{margin:0}
 .alt{background:var(--green)}
-.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-top:28px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;align-items:start;margin-top:28px}
 .gallery figure{margin:0;background:#000;border:2px solid var(--gold)}
-.gallery img,.gallery video{width:100%;aspect-ratio:16/9;object-fit:cover;background:#000}
-.gallery .tall img{aspect-ratio:3/4;object-position:center 60%}
+.gallery img,.gallery video{width:100%;object-fit:cover;background:#000}
+
 .gallery figcaption{padding:10px 14px;font-weight:700;font-size:15px}
+.gallery figure[hidden]{display:none}
+.gallery img[data-full]{cursor:zoom-in}
+.gallery .fit img{object-fit:contain;aspect-ratio:4/3}
+.gallery img,.gallery video{aspect-ratio:4/3}
+.gallery .top img{object-position:center 22%}
+.gallery .tall img{aspect-ratio:4/3;object-position:center 40%}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.filters button{background:none;color:#fff;border:2px solid var(--gold);font:700 15px Barlow,sans-serif;padding:8px 18px;cursor:pointer;border-radius:2px}
+.filters button[aria-pressed=true]{background:var(--gold);color:#000}
+#lb{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.94);display:flex;align-items:center;justify-content:center;flex-direction:column;padding:56px 56px 70px}
+#lb[hidden]{display:none}
+#lb img{max-width:100%;max-height:100%;object-fit:contain;border:3px solid var(--gold);background:#000}
+#lb button{position:absolute;background:var(--gold);color:#000;border:0;font:700 34px/1 Barlow,sans-serif;width:52px;height:52px;cursor:pointer;border-radius:2px}
+#lb .lb-x{top:12px;right:12px}#lb .lb-p{left:8px;top:50%;margin-top:-26px}#lb .lb-n{right:8px;top:50%;margin-top:-26px}
+#lb .lb-c{position:absolute;bottom:18px;left:0;right:0;text-align:center;margin:0;font-weight:700;color:#fff;padding:0 16px}
+@media(max-width:700px){#lb{padding:56px 8px 70px}#lb .lb-p,#lb .lb-n{top:auto;bottom:8px;margin:0}}
 .reg{--bg:var(--green);--ac:var(--gold)}
 .reg.fall{--bg:#000;--ac:#f7c948}
 .reghead{background:var(--bg);padding:60px 5vw 40px;border-bottom:6px solid var(--ac)}
@@ -130,9 +146,10 @@ footer b{color:var(--gold)}
     <h2>This season</h2>
     <p class="lead">Game day with the Trailblazers.</p>
     <div class="gallery">
-      <figure><video controls preload="metadata" playsinline poster="assets/img/clip1.jpg"><source src="assets/video/clip1.mp4" type="video/mp4"></video><figcaption>Game day highlights</figcaption></figure>
-      <figure class="tall"><img src="assets/img/team.webp" alt="Trailblazers players and coaches posing together after a game" loading="lazy"><figcaption>Team and coaches</figcaption></figure>
-      <figure><video controls preload="metadata" playsinline poster="assets/img/clip2.jpg"><source src="assets/video/clip2.mp4" type="video/mp4"></video><figcaption>On the field</figcaption></figure>
+      <figure data-cat="video"><video controls preload="metadata" playsinline poster="assets/img/clip1.jpg"><source src="assets/video/clip1.mp4" type="video/mp4"></video><figcaption>Game day highlights</figcaption></figure>
+      <figure data-cat="community" class="fit"><img src="assets/img/gallery/fire-group-t.webp" data-full="assets/img/gallery/fire-group.webp" alt="Trailblazers football players and cheerleaders posing with firefighters in front of a fire truck" loading="lazy" tabindex="0"><figcaption>Visit with the fire department</figcaption></figure>
+      <figure data-cat="awards"><img src="assets/img/gallery/4796-t.webp" data-full="assets/img/gallery/4796.webp" alt="Players and families holding award certificates under a pavilion" loading="lazy" tabindex="0"><figcaption>Players and families with their certificates</figcaption></figure>
+      <figure data-cat="team" class="tall"><img src="assets/img/team.webp" data-full="assets/img/team.webp" alt="Trailblazers players and coaches posing together after a game" loading="lazy" tabindex="0"><figcaption>Team and coaches</figcaption></figure>
     </div>
     <p style="margin-top:22px"><a class="btn" href="#media" data-go="media">See all photos and video</a></p>
   </div></section>
@@ -157,7 +174,7 @@ footer b{color:var(--gold)}
           <ul><li>Uniform with carry bag included</li><li>Ages 7 to 13</li></ul>
           <a class="btn reg-btn" href="#form-spring" data-program="cheer" data-season="spring">Register for cheer</a></div>
       </div>
-      <h2 style="margin-top:46px;font-size:36px">Divisions</h2>
+      <div class="price" style="margin-top:18px"><div class="tier"><h3>Football, both seasons</h3><div class="amt">$400</div><p>Spring &amp; Fall 2027 football in one payment.</p><a class="btn reg-btn" href="#form-spring" data-program="football_both" data-season="spring">Register for both seasons</a></div><div class="tier"><h3>Cheer, both seasons</h3><div class="amt">$500</div><p>Spring &amp; Fall 2027 cheer in one payment.</p><a class="btn reg-btn" href="#form-spring" data-program="cheer_both" data-season="spring">Register for both seasons</a></div></div><h2 style="margin-top:46px;font-size:36px">Divisions</h2>
       <div class="divs"><span class="chip">5U Flag</span><span class="chip">7U Tackle</span><span class="chip">9U Tackle</span><span class="chip">11U Tackle</span><span class="chip">13U Tackle</span><span class="chip">Cheer 7–13</span></div>
       <p class="note" id="regnote"></p>
       <div class="regform-slot" id="form-spring" data-season="spring"></div>
@@ -180,7 +197,7 @@ footer b{color:var(--gold)}
         <ul><li>Uniform with carry bag included</li><li>Ages 7 to 13</li></ul>
         <a class="btn reg-btn" href="#form-fall" data-program="cheer" data-season="fall">Register for cheer</a></div>
     </div>
-    <h2 style="margin-top:46px;font-size:36px">Divisions</h2>
+    <div class="price" style="margin-top:18px"><div class="tier"><h3>Football, both seasons</h3><div class="amt">$400</div><p>Spring &amp; Fall 2027 football in one payment.</p><a class="btn reg-btn" href="#form-fall" data-program="football_both" data-season="fall">Register for both seasons</a></div><div class="tier"><h3>Cheer, both seasons</h3><div class="amt">$500</div><p>Spring &amp; Fall 2027 cheer in one payment.</p><a class="btn reg-btn" href="#form-fall" data-program="cheer_both" data-season="fall">Register for both seasons</a></div></div><h2 style="margin-top:46px;font-size:36px">Divisions</h2>
     <div class="divs"><span class="chip">5U Flag</span><span class="chip">7U Tackle</span><span class="chip">9U Tackle</span><span class="chip">11U Tackle</span><span class="chip">13U Tackle</span><span class="chip">Cheer 7–13</span></div>
     <div class="regform-slot" id="form-fall" data-season="fall"></div>
   </div></section>
@@ -190,11 +207,34 @@ footer b{color:var(--gold)}
   <section><div class="wrap">
     <h2>Photos &amp; video</h2>
     <p class="lead">Game days, practices and the sideline from this season.</p>
+    <div class="filters" role="group" aria-label="Filter photos and video"><button data-f="all" aria-pressed="true">All</button><button data-f="team" aria-pressed="false">Team</button><button data-f="awards" aria-pressed="false">Awards</button><button data-f="community" aria-pressed="false">Community</button><button data-f="cheer" aria-pressed="false">Cheer</button><button data-f="video" aria-pressed="false">Video</button></div>
     <div class="gallery">
-      <figure><video controls preload="metadata" playsinline poster="assets/img/clip1.jpg"><source src="assets/video/clip1.mp4" type="video/mp4"></video><figcaption>Game day highlights</figcaption></figure>
-      <figure><video controls preload="metadata" playsinline poster="assets/img/clip2.jpg"><source src="assets/video/clip2.mp4" type="video/mp4"></video><figcaption>On the field</figcaption></figure>
-      <figure><video controls preload="metadata" playsinline poster="assets/img/clip3.jpg"><source src="assets/video/clip3.mp4" type="video/mp4"></video><figcaption>Season moments</figcaption></figure>
-      <figure class="tall"><img src="assets/img/team.webp" alt="Trailblazers players and coaches posing together after a game" loading="lazy"><figcaption>Team and coaches</figcaption></figure>
+      <figure data-cat="video"><video controls preload="metadata" playsinline poster="assets/img/clip1.jpg"><source src="assets/video/clip1.mp4" type="video/mp4"></video><figcaption>Game day highlights</figcaption></figure>
+      <figure data-cat="cheer" class="fit"><img src="assets/img/gallery/cheer-spotlight-t.webp" data-full="assets/img/gallery/cheer-spotlight.webp" alt="Houston Trailblazers cheer spotlight graphic of a cheerleader" loading="lazy" tabindex="0"><figcaption>Cheer spotlight</figcaption></figure>
+      <figure data-cat="cheer"><img src="assets/img/gallery/cheer-pompoms-t.webp" data-full="assets/img/gallery/cheer-pompoms.webp" alt="Trailblazers cheerleaders posing with pom-poms outside" loading="lazy" tabindex="0"><figcaption>Cheer squad with pom-poms</figcaption></figure>
+      <figure data-cat="cheer" class="top"><img src="assets/img/gallery/cheer-sideline-t.webp" data-full="assets/img/gallery/cheer-sideline.webp" alt="Trailblazers cheerleaders resting on the sideline with pom-poms" loading="lazy" tabindex="0"><figcaption>Cheer squad on the sideline</figcaption></figure>
+      <figure data-cat="team" class="tall"><img src="assets/img/team.webp" data-full="assets/img/team.webp" alt="Trailblazers players and coaches posing together after a game" loading="lazy" tabindex="0"><figcaption>Team and coaches</figcaption></figure>
+      <figure data-cat="community" class="fit"><img src="assets/img/gallery/fire-group-t.webp" data-full="assets/img/gallery/fire-group.webp" alt="Trailblazers football players and cheerleaders posing with firefighters in front of a fire truck" loading="lazy" tabindex="0"><figcaption>Visit with the fire department</figcaption></figure>
+      <figure data-cat="community"><img src="assets/img/gallery/fire-players-t.webp" data-full="assets/img/gallery/fire-players.webp" alt="Trailblazers players posing in front of a fire truck with firefighters" loading="lazy" tabindex="0"><figcaption>Players with firefighters</figcaption></figure>
+      <figure data-cat="community"><img src="assets/img/gallery/fire-football-t.webp" data-full="assets/img/gallery/fire-football.webp" alt="Trailblazers football players posing next to a fire truck with firefighters" loading="lazy" tabindex="0"><figcaption>Football team with firefighters</figcaption></figure>
+      <figure data-cat="community" class="top"><img src="assets/img/gallery/fire-cheer-t.webp" data-full="assets/img/gallery/fire-cheer.webp" alt="Trailblazers cheerleaders trying on firefighter helmets next to a firefighter in full gear" loading="lazy" tabindex="0"><figcaption>Cheerleaders with a firefighter</figcaption></figure>
+      <figure data-cat="video"><video controls preload="metadata" playsinline poster="assets/img/clip2.jpg"><source src="assets/video/clip2.mp4" type="video/mp4"></video><figcaption>On the field</figcaption></figure>
+      <figure data-cat="video cheer"><video controls preload="metadata" playsinline poster="assets/img/clip4.jpg"><source src="assets/video/clip4.mp4" type="video/mp4"></video><figcaption>Cheer routine</figcaption></figure>
+      <figure data-cat="awards"><img src="assets/img/gallery/4796-t.webp" data-full="assets/img/gallery/4796.webp" alt="Players and families holding award certificates under a pavilion" loading="lazy" tabindex="0"><figcaption>Players and families with their certificates</figcaption></figure>
+      <figure data-cat="awards"><img src="assets/img/gallery/4795-t.webp" data-full="assets/img/gallery/4795.webp" alt="Players, parents and coaches lined up with award certificates" loading="lazy" tabindex="0"><figcaption>Celebrating together</figcaption></figure>
+      <figure data-cat="awards"><img src="assets/img/gallery/4765-t.webp" data-full="assets/img/gallery/4765.webp" alt="Trailblazers players holding certificates, with coaches and parents behind them" loading="lazy" tabindex="0"><figcaption>Team award presentation</figcaption></figure>
+      <figure data-cat="awards"><img src="assets/img/gallery/4726-t.webp" data-full="assets/img/gallery/4726.webp" alt="Young players in Trailblazers jerseys holding their certificates" loading="lazy" tabindex="0"><figcaption>Players receiving certificates</figcaption></figure>
+      <figure data-cat="video"><video controls preload="metadata" playsinline poster="assets/img/clip3.jpg"><source src="assets/video/clip3.mp4" type="video/mp4"></video><figcaption>Season moments</figcaption></figure>
+      <figure data-cat="awards"><img src="assets/img/gallery/4799-t.webp" data-full="assets/img/gallery/4799.webp" alt="A young player holding her certificate between two coaches" loading="lazy" tabindex="0"><figcaption>Certificate presentation</figcaption></figure>
+      <figure data-cat="awards"><img src="assets/img/gallery/4685-t.webp" data-full="assets/img/gallery/4685.webp" alt="Coach with a team mom holding her Team Mom Appreciation certificate" loading="lazy" tabindex="0"><figcaption>Team Mom Appreciation award</figcaption></figure>
+      <figure data-cat="awards"><img src="assets/img/gallery/4688-t.webp" data-full="assets/img/gallery/4688.webp" alt="Coach with a volunteer holding her appreciation certificate" loading="lazy" tabindex="0"><figcaption>Volunteer appreciation</figcaption></figure>
+      <figure data-cat="awards"><img src="assets/img/gallery/4690-t.webp" data-full="assets/img/gallery/4690.webp" alt="Coach with a volunteer holding her appreciation certificate" loading="lazy" tabindex="0"><figcaption>Volunteer appreciation</figcaption></figure>
+      <figure data-cat="awards"><img src="assets/img/gallery/4693-t.webp" data-full="assets/img/gallery/4693.webp" alt="Coach with a volunteer holding her appreciation certificate" loading="lazy" tabindex="0"><figcaption>Volunteer appreciation</figcaption></figure>
+      <figure data-cat="awards"><img src="assets/img/gallery/4800-t.webp" data-full="assets/img/gallery/4800.webp" alt="Coach with a guest standing near gold and black balloons" loading="lazy" tabindex="0"><figcaption>Appreciation award</figcaption></figure>
+      <figure data-cat="awards"><img src="assets/img/gallery/4696-t.webp" data-full="assets/img/gallery/4696.webp" alt="Coach presenting a plaque to a supporter" loading="lazy" tabindex="0"><figcaption>Plaque presentation</figcaption></figure>
+      <figure data-cat="awards"><img src="assets/img/gallery/4699-t.webp" data-full="assets/img/gallery/4699.webp" alt="Coach presenting a plaque to a supporter" loading="lazy" tabindex="0"><figcaption>Plaque presentation</figcaption></figure>
+      <figure data-cat="awards"><img src="assets/img/gallery/4701-t.webp" data-full="assets/img/gallery/4701.webp" alt="Coaches and supporters holding plaques" loading="lazy" tabindex="0"><figcaption>Plaque presentation</figcaption></figure>
+      <figure data-cat="awards"><img src="assets/img/gallery/4703-t.webp" data-full="assets/img/gallery/4703.webp" alt="Coaches and supporters holding plaques" loading="lazy" tabindex="0"><figcaption>Plaque presentation</figcaption></figure>
     </div>
   </div></section>
 </div>
@@ -247,6 +287,7 @@ footer b{color:var(--gold)}
 </div>
 </template>
 
+<div id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo viewer"><button class="lb-x" aria-label="Close">×</button><button class="lb-p" aria-label="Previous photo">‹</button><img alt=""><button class="lb-n" aria-label="Next photo">›</button><p class="lb-c"></p></div>
 <footer><b>Houston Trailblazers</b> · Youth football and cheer · Houston, Texas · Non-profit organization<br>Faith · Family · Football · Community</footer>
 
 <script>
@@ -332,6 +373,27 @@ footer b{color:var(--gold)}
     c.innerHTML='<div><b>'+Math.floor(d/864e5)+'</b><small>days</small></div><div><b>'+Math.floor(d%864e5/36e5)+'</b><small>hours</small></div><div><b>'+Math.floor(d%36e5/6e4)+'</b><small>min</small></div>';
     n.textContent='Registration opens November 1. The form below accepts sign-ups once it opens.';
   }else{c.style.display='none';n.textContent='Registration is open.'}
+})();
+</script>
+<script>
+(function(){
+  var lb=document.getElementById('lb'),im=lb.querySelector('img'),cap=lb.querySelector('.lb-c'),list=[],i=0,last;
+  function show(){var e=list[i],f=e.closest('figure').querySelector('figcaption');im.src=e.dataset.full;im.alt=e.alt;cap.textContent=(f?f.textContent:'')+'  ('+(i+1)+' of '+list.length+')'}
+  function open(el){var g=el.closest('.gallery');list=[].slice.call(g.querySelectorAll('figure:not([hidden]) img[data-full]'));i=list.indexOf(el);show();lb.hidden=false;document.body.style.overflow='hidden';last=document.activeElement;lb.querySelector('.lb-x').focus()}
+  function close(){lb.hidden=true;im.removeAttribute('src');document.body.style.overflow='';if(last)last.focus()}
+  function step(n){i=(i+n+list.length)%list.length;show()}
+  document.addEventListener('click',function(e){var t=e.target;
+    if(t.matches('img[data-full]'))open(t);
+    else if(t.matches('.lb-x')||t===lb)close();
+    else if(t.matches('.lb-n'))step(1);
+    else if(t.matches('.lb-p'))step(-1);
+    else if(t.closest('.filters')&&t.matches('button')){
+      var f=t.dataset.f;t.parentNode.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',b===t)});
+      document.querySelectorAll('#media figure').forEach(function(g){g.hidden=f!=='all'&&(' '+g.dataset.cat+' ').indexOf(' '+f+' ')<0});
+    }});
+  document.addEventListener('keydown',function(e){
+    if(lb.hidden){if(e.key==='Enter'&&e.target.matches&&e.target.matches('img[data-full]'))open(e.target);return}
+    if(e.key==='Escape')close();else if(e.key==='ArrowRight')step(1);else if(e.key==='ArrowLeft')step(-1)});
 })();
 </script>
 </body>

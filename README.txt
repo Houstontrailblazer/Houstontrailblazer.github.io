@@ -11,6 +11,6 @@ Static site (no build step). Files:
 4. After about a minute your site is live at https://YOUR-USERNAME.github.io/REPO-NAME/
 
 ## Update later
-- Add a photo: put it in assets/img and add an <img> inside a <figure> in the Photos & Video section.
+- Add a photo: save it in assets/img/gallery (a full-size .webp or .jpg), then copy one <figure> block in the Photos & Video section and change its file names and caption. Use data-cat="awards", "community", "team" or "cheer" so the filter buttons work.
 - Registration: the form posts to Formspree (form id mgaoqnyv). Payment uses PayPal hosted buttons; edit the PAY list near the bottom of index.html to add one button ID per program.
 - Keep each file under 100 MB (GitHub's limit). Videos here are already compressed.

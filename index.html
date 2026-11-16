@@ -114,6 +114,20 @@ footer b{color:var(--gold)}
 .pdfreg ol{padding-left:22px;margin:10px 0 22px;line-height:1.55}
 .pdfreg select{width:100%;max-width:520px;padding:12px;font:500 16px Barlow,sans-serif;background:#000;color:#fff;border:2px solid #4b5d52;border-radius:2px}
 .pdfreg .price-line{font:400 34px Anton,sans-serif;color:var(--ac);margin:18px 0 6px}
+
+.regform.online .fsec{grid-column:1/-1;margin:16px 0 0;padding-bottom:6px;border-bottom:2px solid var(--ac);font:400 26px Anton,sans-serif;letter-spacing:.5px;text-transform:uppercase;color:var(--ac)}
+.regform .small{font-size:14px;color:#c9d3cc;margin:6px 0 0;line-height:1.5}
+.wv-box{max-height:300px;overflow:auto;border:2px solid #4b5d52;background:#050f09;padding:14px 16px;font-size:14px;line-height:1.55}
+.wv-box h4{margin:12px 0 2px;color:var(--ac);font-size:15px}
+.wv-box p{margin:0 0 4px}
+.regform .chk{display:flex;gap:12px;align-items:flex-start;font-weight:500;line-height:1.45}
+.regform .chk input{width:22px;height:22px;flex:none;margin-top:2px;accent-color:var(--ac)}
+.regform .sg{border:1px solid #4b5d52;padding:10px 14px}
+.regform .sg summary{cursor:pointer;font-weight:700}
+.regform .sg table{border-collapse:collapse;width:100%;margin:10px 0;font-size:13.5px}
+.regform .sg th,.regform .sg td{border:1px solid #4b5d52;padding:5px 7px;text-align:left}
+.regform .sg th{background:#0b3a22;color:var(--ac)}
+.regform input[readonly]{opacity:.8}
 </style>
 </head>
 <body>
@@ -265,8 +279,8 @@ footer b{color:var(--gold)}
 
 <template id="pdftpl">
 <div class="regform pdfreg">
-  <h2>Spring 2027 registration forms</h2>
-  <p class="lead">Download the form for your athlete, fill it out, sign the waiver, then pay securely below.</p>
+  <h2>Prefer a paper form?</h2>
+  <p class="lead">Download and print the Spring 2027 form instead, or use this section to pay your fee.</p>
   <div class="forms">
     <div class="fcard"><h3>Football form</h3><p>5U flag football and 7U, 9U, 11U and 13U tackle. Fee: $200, uniform with carry bag included.</p>
       <a class="btn" href="Houston-Trailblazers-Spring-2027-Football-Registration-Form.pdf" download>Download football form (PDF)</a>
@@ -289,8 +303,8 @@ footer b{color:var(--gold)}
 </template>
 <template id="pdftpl-fall">
 <div class="regform pdfreg">
-  <h2>Fall 2027 registration forms</h2>
-  <p class="lead">Download the form for your athlete, fill it out, sign the waiver, then pay securely below.</p>
+  <h2>Prefer a paper form?</h2>
+  <p class="lead">Download and print the Fall 2027 form instead, or use this section to pay your fee.</p>
   <div class="forms">
     <div class="fcard"><h3>Football form</h3><p>5U flag football and 7U, 9U, 11U and 13U tackle. Fee: $250, uniform with carry bag included.</p>
       <a class="btn" href="Houston-Trailblazers-Fall-2027-Football-Registration-Form.pdf" download>Download football form (PDF)</a>
@@ -312,6 +326,94 @@ footer b{color:var(--gold)}
 </div>
 </template>
 
+<template id="regtpl2">
+<div class="regform online">
+  <h2>Register online</h2>
+  <p class="lead">Fill out the form below, sign the waiver, and submit. After you submit, you can pay securely with PayPal or Venmo.</p>
+  <form novalidate>
+    <input type="hidden" name="season"><input type="hidden" name="_subject"><input type="hidden" name="waiver_text"><input type="hidden" name="signed_at">
+    <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <div class="fgrid">
+<h3 class="fsec">1. Player information</h3>
+<div><label>Program</label><select name="program" required><option value="football">Football, this season</option><option value="cheer">Cheer, this season</option><option value="football_both">Football, Spring &amp; Fall 2027 (both seasons) $400</option><option value="cheer_both">Cheer, Spring &amp; Fall 2027 (both seasons) $500</option></select></div>
+<div class="fb-only"><label>Age division</label><select name="division" required><option value="">Choose...</option><option>5U Flag Football</option><option>7U Tackle</option><option>9U Tackle</option><option>11U Tackle</option><option>13U Tackle</option></select></div>
+<div class="ch-only"><label>Age division</label><select name="division" required><option value="">Choose...</option><option>5U</option><option>7U</option><option>9U</option><option>11U</option><option>13U</option></select></div>
+<div class=""><label>Player first name</label><input name="player_first_name" type="text" required autocomplete="off"></div>
+<div class=""><label>Player last name</label><input name="player_last_name" type="text" required autocomplete="off"></div>
+<div class=""><label>Date of birth</label><input name="player_birthdate" type="date" required></div>
+<div class=""><label>Player age</label><input name="player_age" type="number" required min="4" max="14"></div>
+<div class=""><label>Grade</label><input name="grade" type="text" required></div>
+<div class=""><label>School currently attending</label><input name="school" type="text" required></div>
+<div class=""><label>Gender (optional)</label><input name="gender" type="text"></div>
+<div class=""><label>Played with the Trailblazers before?</label><select name="played_before" required><option value="">Choose...</option><option>Yes</option><option>No</option></select></div>
+<h3 class="fsec">2. Parent / guardian information</h3>
+<div class=""><label>Parent / guardian full name</label><input name="parent_name" type="text" required autocomplete="name"></div>
+<div class=""><label>Relationship to player</label><input name="parent_relationship" type="text" required></div>
+<div class=""><label>Cell phone</label><input name="phone" type="tel" required autocomplete="tel"></div>
+<div class=""><label>Alternate phone (optional)</label><input name="alt_phone" type="tel"></div>
+<div class=""><label>Email address</label><input name="email" type="email" required autocomplete="email"></div>
+<div class="full"><label>Street address</label><input name="street_address" type="text" required autocomplete="street-address"></div>
+<div class=""><label>City</label><input name="city" type="text" required autocomplete="address-level2"></div>
+<div class=""><label>State</label><input name="state" type="text" required value="TX" maxlength="2" autocomplete="address-level1"></div>
+<div class=""><label>ZIP code</label><input name="zip" type="text" required inputmode="numeric" maxlength="10" autocomplete="postal-code"></div>
+<div class=""><label>Second parent / guardian name (optional)</label><input name="parent2_name" type="text"></div>
+<div class=""><label>Second parent / guardian phone (optional)</label><input name="parent2_phone" type="tel"></div>
+<h3 class="fsec">3. Emergency contact (someone other than a parent / guardian)</h3>
+<div class=""><label>Emergency contact name</label><input name="emergency_contact_name" type="text" required></div>
+<div class=""><label>Relationship</label><input name="emergency_contact_relationship" type="text" required></div>
+<div class=""><label>Emergency contact phone</label><input name="emergency_contact_phone" type="tel" required></div>
+<div class=""><label>Second emergency contact name (optional)</label><input name="emergency_contact2_name" type="text"></div>
+<div class=""><label>Second emergency contact phone (optional)</label><input name="emergency_contact2_phone" type="tel"></div>
+<h3 class="fsec">4. Uniform sizes</h3>
+<div class="fb-only"><label>Jersey size</label><select name="jersey_size" required><option value="">Choose...</option><option>Youth XS</option><option>Youth Small</option><option>Youth Medium</option><option>Youth Large</option><option>Youth XL</option><option>Adult Small</option><option>Adult Medium</option><option>Adult Large</option><option>Adult XL</option><option>Adult 2XL</option></select></div>
+<div class="fb-only"><label>Pant size</label><select name="pant_size" required><option value="">Choose...</option><option>Youth XS</option><option>Youth Small</option><option>Youth Medium</option><option>Youth Large</option><option>Youth XL</option><option>Adult Small</option><option>Adult Medium</option><option>Adult Large</option><option>Adult XL</option><option>Adult 2XL</option></select></div>
+<div class="fb-only"><label>Preferred jersey number, 1st choice (optional)</label><input name="jersey_number_1" type="text"></div>
+<div class="fb-only"><label>Jersey number, 2nd choice (optional)</label><input name="jersey_number_2" type="text"></div>
+<div class="fb-only"><label>Height / weight (helps with fit) (optional)</label><input name="height_weight" type="text"></div>
+<div class="ch-only"><label>Cheer top (shell) size</label><select name="top_size" required><option value="">Choose...</option><option>Youth XS</option><option>Youth Small</option><option>Youth Medium</option><option>Youth Large</option><option>Adult Small</option><option>Adult Medium</option></select></div>
+<div class="ch-only"><label>Cheer bottom (skirt) size</label><select name="bottom_size" required><option value="">Choose...</option><option>Youth XS</option><option>Youth Small</option><option>Youth Medium</option><option>Youth Large</option><option>Adult Small</option><option>Adult Medium</option></select></div>
+<div class="ch-only"><label>Height (in) (optional)</label><input name="height_in" type="text"></div>
+<div class="ch-only"><label>Weight (lb) (optional)</label><input name="weight_lb" type="text"></div>
+<div class="ch-only"><label>Chest (in) (optional)</label><input name="chest_in" type="text"></div>
+<div class="ch-only"><label>Waist (in) (optional)</label><input name="waist_in" type="text"></div>
+<div class="ch-only"><label>Hip (in) (optional)</label><input name="hip_in" type="text"></div>
+<details class="full sg ch-only"><summary>Cheer size guide and how to measure</summary><table><tr><th>Size</th><th>Typical age*</th><th>Chest (in)</th><th>Waist (in)</th><th>Skirt waist (in)</th><th>Skirt hip (in)</th></tr><tr><td>Youth XS</td><td>3-4</td><td>20-21</td><td>up to 19</td><td>16-17</td><td>23-27</td></tr><tr><td>Youth Small</td><td>4-5</td><td>22-23</td><td>up to 21</td><td>18-19</td><td>25-29</td></tr><tr><td>Youth Medium</td><td>6-8</td><td>24-25</td><td>up to 23</td><td>20-21</td><td>27-31</td></tr><tr><td>Youth Large</td><td>8-10</td><td>26-28</td><td>up to 25</td><td>22-23</td><td>29-33</td></tr><tr><td>Adult Small</td><td>10-12</td><td>29-31</td><td>up to 27</td><td colspan="2">staff will confirm</td></tr><tr><td>Adult Medium</td><td>12+</td><td>32-33</td><td>up to 29</td><td colspan="2">staff will confirm</td></tr></table><p>*Ages are only a rough guide; measurements decide. Cheer uniforms run smaller than regular clothing. If between sizes, choose the larger size. Sizes vary by uniform maker; staff confirm the final size. Chest = fullest part, tape level. Waist = natural waistline (narrowest part). Hip = fullest part of hips. Do not pull the tape tight.</p></details>
+<h3 class="fsec">5. Medical information (confidential)</h3>
+<div class=""><label>Family physician / pediatrician (optional)</label><input name="physician_name" type="text"></div>
+<div class=""><label>Physician phone (optional)</label><input name="physician_phone" type="tel"></div>
+<div class=""><label>Health insurance company (optional)</label><input name="insurance_company" type="text"></div>
+<div class=""><label>Policy / member # (optional)</label><input name="insurance_policy" type="text"></div>
+<div class=""><label>Group # (optional)</label><input name="insurance_group" type="text"></div>
+<div class=""><label>Policy holder name (optional)</label><input name="insurance_holder" type="text"></div>
+<div class=""><label>Preferred hospital (optional)</label><input name="preferred_hospital" type="text"></div>
+<div class="full"><label>Allergies (food, insect, medication, latex, etc.). Write None if none</label><textarea name="allergies" rows="2" required></textarea></div>
+<div class="full"><label>Medical conditions (asthma, diabetes, heart, seizures, sickle cell trait, ADHD, etc.). Write None if none</label><textarea name="medical_conditions" rows="2" required></textarea></div>
+<div class="full"><label>Current medications and dosage (inhaler, EpiPen, etc.). Write None if none</label><textarea name="medications" rows="2" required></textarea></div>
+<div class=""><label>Has the player ever had a concussion or head / neck injury?</label><select name="prior_concussion" required><option value="">Choose...</option><option>No</option><option>Yes</option></select></div>
+<div class=""><label>If yes, dates and details (optional)</label><input name="concussion_details" type="text"></div>
+<div class="full"><label>Other information coaches or medical staff should know (optional)</label><textarea name="other_medical" rows="2"></textarea></div>
+<h3 class="fsec">6. Photo &amp; media release</h3>
+<p class="full small">Houston Trailblazers may photograph or video record games, practices and events and use them on its website, social media, flyers and sponsor materials to promote the program. Names will not be published with images of minors unless a parent / guardian gives separate written permission.</p>
+<div class="full"><label>Photo &amp; media permission</label><select name="media_release" required><option value="">Choose...</option><option>I GIVE permission for my child’s image to be used</option><option>I DO NOT give permission</option></select></div>
+<h3 class="fsec">7. Waiver, release &amp; participation agreement</h3>
+<div class="full"><div class="wv-box" tabindex="0" aria-label="Waiver text"></div><p class="small">Scroll to read the whole agreement before signing.</p></div>
+<label class="full chk"><input type="checkbox" name="waiver_read" value="Yes" required><span>I have read and understand the Waiver, Release &amp; Participation Agreement above and agree to all of its terms, including the Code of Conduct for athletes and parents.</span></label>
+<label class="full chk"><input type="checkbox" name="esign_consent" value="Yes" required><span>I am the parent or legal guardian of this player. I agree that typing my name below is my legal electronic signature and has the same effect as signing on paper.</span></label>
+<div class=""><label>Parent / guardian signature (type your full legal name)</label><input name="signature_name" type="text" required></div>
+<div class=""><label>Date</label><input name="signature_date" type="date" required readonly></div>
+    </div>
+    <div class="price-line"></div>
+    <button class="btn" type="submit">Submit registration</button>
+    <div class="msg err" role="alert" hidden></div>
+  </form>
+  <div class="done" hidden>
+    <div class="msg"><b>Registration received.</b> A copy has been sent to the Trailblazers staff. Your player is not on the roster until payment is complete. Pay below to finish.</div>
+    <div class="paybox"></div>
+  </div>
+</div>
+</template>
+
+<script type="application/json" id="waiverdata">{"football": {"intro": "<b>PLEASE READ CAREFULLY BEFORE SIGNING. THIS DOCUMENT AFFECTS LEGAL RIGHTS, INCLUDING THE RIGHT TO SUE.<\/b> In this Agreement, “I,” “me” and “my” mean the parent / legal guardian signing below; “Player” means my child named on this form; “Trailblazers” means Houston Trailblazers, a Texas non-profit youth sports organization; and “Program” means the Trailblazers {{SEASON}} football program, including registration, practices, conditioning, scrimmages, games, tournaments, events and related travel.", "clauses": [["1.  Voluntary Participation", "I am the parent or legal guardian of the Player and have authority to sign this Agreement. The Player’s participation is voluntary. Football (including flag and tackle football) is a physical contact sport. I have read the Program rules and understand that the Player must follow the instructions of coaches and officials."], ["2.  Acknowledgment of Risks", "I understand that football and related activities involve <b>inherent risks of serious injury<\/b>, including but not limited to sprains, strains, bruises, broken bones, torn ligaments, <b>concussions and other head, neck and spinal injuries<\/b>, internal injuries, heat-related illness, dehydration, injuries from falls or collisions with other players, equipment or playing surfaces, and, in rare cases, <b>paralysis or death<\/b>. Risks also come from weather, field conditions, equipment and transportation. These risks cannot be completely eliminated, even when the Player, coaches and others use reasonable care and protective equipment."], ["3.  Assumption of Risk", "I have discussed these risks with the Player. On behalf of myself and the Player, I knowingly and voluntarily accept and <b>assume all risks<\/b> of participating in the Program, whether known or unknown, to the fullest extent permitted by Texas law."], ["4.  WAIVER AND RELEASE OF LIABILITY", "<b>TO THE FULLEST EXTENT PERMITTED BY TEXAS LAW, I, ON BEHALF OF MYSELF, THE PLAYER, AND OUR HEIRS, EXECUTORS, ADMINISTRATORS AND ASSIGNS, HEREBY WAIVE, RELEASE, DISCHARGE AND COVENANT NOT TO SUE HOUSTON TRAILBLAZERS, ITS DIRECTORS, OFFICERS, COACHES, VOLUNTEERS, EMPLOYEES, MEMBERS, SPONSORS, AFFILIATED LEAGUES, AND THE OWNERS AND OPERATORS OF ANY FIELD OR FACILITY USED BY THE PROGRAM (THE “RELEASED PARTIES”) FROM ANY AND ALL CLAIMS, DEMANDS, LOSSES AND LIABILITY FOR INJURY, ILLNESS, DEATH OR PROPERTY DAMAGE ARISING OUT OF OR RELATED TO THE PLAYER’S PARTICIPATION IN THE PROGRAM, INCLUDING CLAIMS CAUSED BY THE NEGLIGENCE OF THE RELEASED PARTIES.<\/b> This release does not apply to claims for gross negligence or intentional misconduct, or to any claim that cannot lawfully be released."], ["5.  Medical Treatment Authorization", "If I cannot be reached in an emergency, I authorize Trailblazers coaches and staff to obtain emergency first aid and to arrange for the Player to be examined, transported and treated by emergency medical personnel, physicians, hospitals or other licensed providers as they consider necessary. I agree to be responsible for all resulting medical, ambulance and hospital charges. The health information I provided on this form is accurate and complete, and I will tell the coaching staff promptly of any change in the Player’s health. Trailblazers does not provide medical or accident insurance for players; I am responsible for the Player’s medical costs."], ["6.  Concussion &amp; Head-Injury Policy", "I understand that a player who is suspected of having a concussion or head injury will be removed from play immediately and may not return to practice or games until cleared in writing by a licensed health care provider trained in concussion evaluation. I agree to report any suspected concussion or head injury, however minor, to the coaching staff, and to follow the Program’s return-to-play requirements."], ["7.  Health &amp; Fitness", "To the best of my knowledge, the Player is in good physical condition and has no medical condition that would make participation unsafe, except as disclosed on this form. I understand that I may be asked for a physician’s clearance before the Player may participate."], ["8.  Conduct, Rules &amp; Removal", "The Player and I agree to follow Program rules, treat coaches, officials, players and families with respect, and display good sportsmanship. Trailblazers may suspend or remove a player or family member for unsafe, abusive or unsportsmanlike conduct. Registration fees are not refunded when a participant is removed for misconduct."], ["9.  Equipment &amp; Uniform", "The registration fee includes a Trailblazers uniform and carry bag, which the Player keeps. Any helmet, pads or other equipment loaned by Trailblazers remains Trailblazers property and must be returned at the end of the season or on withdrawal. I agree to pay the replacement cost of loaned equipment that is lost or damaged other than through normal use. The Player must wear all required protective equipment properly at all tackle practices and games."], ["10.  Fees &amp; Refunds", "I understand the {{SEASON}} football registration fee is {{FEE}} per player. Once uniforms have been ordered or the Player has attended a practice, the fee is non-refundable, except at the discretion of the Trailblazers board. If the Program is cancelled by Trailblazers before the season begins, fees will be refunded or credited."], ["11.  Supervision &amp; Transportation", "Parents / guardians are responsible for dropping players off and picking them up on time at the start and end of each practice or game. Trailblazers is not responsible for players before or after scheduled Program activities. I am responsible for the Player’s transportation to and from the Program unless otherwise arranged in writing."], ["12.  Photo &amp; Media", "My choice on the Photo &amp; Media Release in the Photo &amp; Media Release section of this form applies to photographs and recordings made during Program activities."], ["13.  Indemnification", "To the extent permitted by law, I agree to indemnify and hold harmless the Released Parties from any claim, loss or expense (including reasonable attorney’s fees) brought by or on behalf of the Player or me, or by anyone else because of the Player’s conduct, arising from the Player’s participation in the Program, except to the extent caused by the gross negligence or intentional misconduct of a Released Party."], ["14.  General Terms", "This Agreement is governed by the laws of the State of Texas, with venue in Harris County, Texas. If any part is found invalid or unenforceable, the rest remains in effect. This Agreement applies to the entire {{SEASON}} season. I have read this Agreement, understand it, have had the chance to ask questions, and sign it freely."], ["15.  Athlete Code of Conduct &amp; Removal From Team", "The Player must treat coaches, staff, officials, volunteers, teammates and opponents with respect at all Program activities. <b>Fighting or physical aggression, bullying or hazing, threats, theft or vandalism, profanity, and disrespectful or defiant behavior toward coaches, staff, officials or volunteers are grounds for suspension or immediate removal from the team<\/b> at the sole discretion of Trailblazers coaches and board. <b>A player removed from the team for these reasons is not entitled to any refund of registration fees or uniform costs<\/b>, and must return all loaned equipment."], ["16.  Parent / Guardian Code of Conduct", "Parents, guardians, family members and guests are expected to model good sportsmanship. <b>Yelling at or arguing with coaches, staff, officials, players or other parents, abusive or threatening language, fighting, confronting coaches or staff during practices or games, and harassment in person or on social media<\/b> are not tolerated. Concerns should be raised calmly and privately with the head coach or a board member at an appropriate time. Violations may result in the person being asked to leave the premises, suspension from attending Program activities, and/or <b>removal of the Player from the team, with no refund of registration fees or uniform costs<\/b>."]], "ack": "<b>BY SIGNING BELOW I CONFIRM THAT I HAVE READ AND UNDERSTAND THIS WAIVER, RELEASE &amp; PARTICIPATION AGREEMENT, THAT I AM GIVING UP LEGAL RIGHTS ON BEHALF OF MYSELF AND THE PLAYER, AND THAT I SIGN IT VOLUNTARILY.<\/b>"}, "cheer": {"intro": "<b>PLEASE READ CAREFULLY BEFORE SIGNING. THIS DOCUMENT AFFECTS LEGAL RIGHTS, INCLUDING THE RIGHT TO SUE.<\/b> In this Agreement, “I,” “me” and “my” mean the parent / legal guardian signing below; “Player” means my child named on this form; “Trailblazers” means Houston Trailblazers, a Texas non-profit youth sports organization; and “Program” means the Trailblazers {{SEASON}} cheerleading program, including registration, practices, conditioning, scrimmages, games, tournaments, events and related travel.", "clauses": [["1.  Voluntary Participation", "I am the parent or legal guardian of the Player and have authority to sign this Agreement. The Player’s participation is voluntary. Cheerleading (including stunting, tumbling, jumping, dance and sideline cheer at football games) is a physical, athletic activity. I have read the Program rules and understand that the Player must follow the instructions of coaches and officials."], ["2.  Acknowledgment of Risks", "I understand that cheerleading and related activities involve <b>inherent risks of serious injury<\/b>, including but not limited to sprains, strains, bruises, broken bones, torn ligaments, <b>concussions and other head, neck and spinal injuries<\/b>, internal injuries, heat-related illness, dehydration, injuries from falls while stunting, tumbling, jumping or being lifted, tossed or caught, collisions with other participants, equipment or playing surfaces, and, in rare cases, <b>paralysis or death<\/b>. Risks also come from weather, field conditions, equipment and transportation. These risks cannot be completely eliminated, even when the Player, coaches and others use reasonable care and protective equipment."], ["3.  Assumption of Risk", "I have discussed these risks with the Player. On behalf of myself and the Player, I knowingly and voluntarily accept and <b>assume all risks<\/b> of participating in the Program, whether known or unknown, to the fullest extent permitted by Texas law."], ["4.  WAIVER AND RELEASE OF LIABILITY", "<b>TO THE FULLEST EXTENT PERMITTED BY TEXAS LAW, I, ON BEHALF OF MYSELF, THE PLAYER, AND OUR HEIRS, EXECUTORS, ADMINISTRATORS AND ASSIGNS, HEREBY WAIVE, RELEASE, DISCHARGE AND COVENANT NOT TO SUE HOUSTON TRAILBLAZERS, ITS DIRECTORS, OFFICERS, COACHES, VOLUNTEERS, EMPLOYEES, MEMBERS, SPONSORS, AFFILIATED LEAGUES, AND THE OWNERS AND OPERATORS OF ANY FIELD OR FACILITY USED BY THE PROGRAM (THE “RELEASED PARTIES”) FROM ANY AND ALL CLAIMS, DEMANDS, LOSSES AND LIABILITY FOR INJURY, ILLNESS, DEATH OR PROPERTY DAMAGE ARISING OUT OF OR RELATED TO THE PLAYER’S PARTICIPATION IN THE PROGRAM, INCLUDING CLAIMS CAUSED BY THE NEGLIGENCE OF THE RELEASED PARTIES.<\/b> This release does not apply to claims for gross negligence or intentional misconduct, or to any claim that cannot lawfully be released."], ["5.  Medical Treatment Authorization", "If I cannot be reached in an emergency, I authorize Trailblazers coaches and staff to obtain emergency first aid and to arrange for the Player to be examined, transported and treated by emergency medical personnel, physicians, hospitals or other licensed providers as they consider necessary. I agree to be responsible for all resulting medical, ambulance and hospital charges. The health information I provided on this form is accurate and complete, and I will tell the coaching staff promptly of any change in the Player’s health. Trailblazers does not provide medical or accident insurance for players; I am responsible for the Player’s medical costs."], ["6.  Concussion &amp; Head-Injury Policy", "I understand that a player who is suspected of having a concussion or head injury will be removed from play immediately and may not return to practice or games until cleared in writing by a licensed health care provider trained in concussion evaluation. I agree to report any suspected concussion or head injury, however minor, to the coaching staff, and to follow the Program’s return-to-play requirements."], ["7.  Health &amp; Fitness", "To the best of my knowledge, the Player is in good physical condition and has no medical condition that would make participation unsafe, except as disclosed on this form. I understand that I may be asked for a physician’s clearance before the Player may participate."], ["8.  Conduct, Rules &amp; Removal", "The Player and I agree to follow Program rules, treat coaches, officials, players and families with respect, and display good sportsmanship. Trailblazers may suspend or remove a player or family member for unsafe, abusive or unsportsmanlike conduct. Registration fees are not refunded when a participant is removed for misconduct. For safety, the Player will not attempt stunts, tumbling or jumps outside supervised practices, and will follow the coaches’ rules on jewelry, hair, nails and footwear."], ["9.  Equipment &amp; Uniform", "The registration fee includes a Trailblazers cheer uniform and carry bag, which the Player keeps. Any pom-poms, mats or other equipment loaned by Trailblazers remains Trailblazers property and must be returned at the end of the season or on withdrawal. I agree to pay the replacement cost of loaned equipment that is lost or damaged other than through normal use."], ["10.  Fees &amp; Refunds", "I understand the {{SEASON}} cheer registration fee is {{FEE}} per player. Once uniforms have been ordered or the Player has attended a practice, the fee is non-refundable, except at the discretion of the Trailblazers board. If the Program is cancelled by Trailblazers before the season begins, fees will be refunded or credited."], ["11.  Supervision &amp; Transportation", "Parents / guardians are responsible for dropping players off and picking them up on time at the start and end of each practice or game. Trailblazers is not responsible for players before or after scheduled Program activities. I am responsible for the Player’s transportation to and from the Program unless otherwise arranged in writing."], ["12.  Photo &amp; Media", "My choice on the Photo &amp; Media Release in the Photo &amp; Media Release section of this form applies to photographs and recordings made during Program activities."], ["13.  Indemnification", "To the extent permitted by law, I agree to indemnify and hold harmless the Released Parties from any claim, loss or expense (including reasonable attorney’s fees) brought by or on behalf of the Player or me, or by anyone else because of the Player’s conduct, arising from the Player’s participation in the Program, except to the extent caused by the gross negligence or intentional misconduct of a Released Party."], ["14.  General Terms", "This Agreement is governed by the laws of the State of Texas, with venue in Harris County, Texas. If any part is found invalid or unenforceable, the rest remains in effect. This Agreement applies to the entire {{SEASON}} season. I have read this Agreement, understand it, have had the chance to ask questions, and sign it freely."], ["15.  Athlete Code of Conduct &amp; Removal From Team", "The Player must treat coaches, staff, officials, volunteers, teammates and opponents with respect at all Program activities. <b>Fighting or physical aggression, bullying or hazing, threats, theft or vandalism, profanity, and disrespectful or defiant behavior toward coaches, staff, officials or volunteers are grounds for suspension or immediate removal from the team<\/b> at the sole discretion of Trailblazers coaches and board. <b>A player removed from the team for these reasons is not entitled to any refund of registration fees or uniform costs<\/b>, and must return all loaned equipment."], ["16.  Parent / Guardian Code of Conduct", "Parents, guardians, family members and guests are expected to model good sportsmanship. <b>Yelling at or arguing with coaches, staff, officials, players or other parents, abusive or threatening language, fighting, confronting coaches or staff during practices or games, and harassment in person or on social media<\/b> are not tolerated. Concerns should be raised calmly and privately with the head coach or a board member at an appropriate time. Violations may result in the person being asked to leave the premises, suspension from attending Program activities, and/or <b>removal of the Player from the team, with no refund of registration fees or uniform costs<\/b>."]], "ack": "<b>BY SIGNING BELOW I CONFIRM THAT I HAVE READ AND UNDERSTAND THIS WAIVER, RELEASE &amp; PARTICIPATION AGREEMENT, THAT I AM GIVING UP LEGAL RIGHTS ON BEHALF OF MYSELF AND THE PLAYER, AND THAT I SIGN IT VOLUNTARILY.<\/b>"}}</script>
 <template id="regtpl">
 <div class="regform">
   <h2>Register your player</h2>
@@ -385,11 +487,52 @@ footer b{color:var(--gold)}
     sdk=new Promise(function(res,rej){var t=document.createElement('script');t.src=PAYPAL_SDK;t.onload=res;t.onerror=rej;document.head.appendChild(t)});
     return sdk;
   }
+  var WV=JSON.parse(document.getElementById('waiverdata').textContent);
+  function initOnline(slot,season){
+    slot.appendChild(document.getElementById('regtpl2').content.cloneNode(true));
+    var root=slot.querySelector('.regform.online'),f=root.querySelector('form'),prog=f.program,pl=root.querySelector('.price-line'),err=root.querySelector('.msg.err'),box=root.querySelector('.wv-box');
+    f.signature_date.value=new Date().toLocaleDateString('en-CA');
+    function toggle(cls,on){root.querySelectorAll('.'+cls).forEach(function(el){el.hidden=!on;el.querySelectorAll('input,select,textarea').forEach(function(i){i.disabled=!on})})}
+    function refresh(){
+      var key=keyOf(season,prog.value),b=prog.value.split('_')[0],nm=NAME[key.split('_')[0]];
+      toggle('fb-only',b==='football');toggle('ch-only',b==='cheer');
+      f.season.value=nm;
+      pl.textContent=nm+' '+(b==='cheer'?'Cheer':'Football')+': $'+PRICE[key];
+      var w=WV[b],rep=function(t){return t.split('{{SEASON}}').join(nm).split('{{FEE}}').join('$'+PRICE[key])};
+      box.innerHTML='<p>'+rep(w.intro)+'</p>'+w.clauses.map(function(c){return '<h4>'+rep(c[0])+'</h4><p>'+rep(c[1])+'</p>'}).join('')+'<h4>Parent / Guardian Acknowledgment</h4><p>'+rep(w.ack)+'</p>';
+    }
+    prog.addEventListener('change',refresh);refresh();
+    f.addEventListener('submit',function(e){
+      e.preventDefault();err.hidden=true;
+      if(!f.reportValidity())return;
+      var b=prog.value.split('_')[0],key=keyOf(season,prog.value),nm=NAME[key.split('_')[0]];
+      f._subject.value=nm+' '+b+' registration: '+f.player_first_name.value+' '+f.player_last_name.value;
+      f.waiver_text.value='WAIVER TEXT AGREED TO ('+nm+' '+b+'):\n\n'+box.innerText;
+      f.signed_at.value=new Date().toString();
+      var btn=f.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Sending...';
+      fetch(FORMSPREE,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}}).then(function(r){
+        if(!r.ok)throw new Error('send');
+        f.hidden=true;
+        var done=root.querySelector('.done'),pb=root.querySelector('.paybox'),id=PAY[key];
+        done.hidden=false;
+        if(id){
+          var cid='paypal-'+season+'-'+key;pb.innerHTML='<div id="'+cid+'"></div>';
+          loadPayPal().then(function(){paypal.HostedButtons({hostedButtonId:id}).render('#'+cid)}).catch(function(){pb.textContent='Payment could not load. Please contact Coach Jackson at 561-763-6078.'});
+        }else{pb.textContent='We will email you payment instructions within 1 business day.'}
+        done.scrollIntoView({behavior:'smooth',block:'center'});
+      }).catch(function(){
+        btn.disabled=false;btn.textContent='Submit registration';
+        err.textContent='Your form did not send. Check your connection and try again, or call 561-763-6078.';err.hidden=false;
+      });
+    });
+    return function(v){prog.value=v;refresh()};
+  }
   document.querySelectorAll('.regform-slot').forEach(function(slot){
     var season=slot.dataset.season;
+    var setOnline=initOnline(slot,season);
     if(season==='spring'||season==='fall'){
       slot.appendChild(document.getElementById(season==='fall'?'pdftpl-fall':'pdftpl').content.cloneNode(true));
-      var sel=slot.querySelector('.paysel'),ppl=slot.querySelector('.price-line'),pbox=slot.querySelector('.paybox');
+      var sel=slot.querySelector('.paysel'),ppl=slot.querySelector('.pdfreg .price-line'),pbox=slot.querySelector('.pdfreg .paybox');
       sel.addEventListener('change',function(){
         pbox.innerHTML='';ppl.textContent='';
         if(!sel.value)return;
@@ -400,7 +543,7 @@ footer b{color:var(--gold)}
           loadPayPal().then(function(){paypal.HostedButtons({hostedButtonId:id}).render('#'+cid)}).catch(function(){pbox.textContent='Payment could not load. Please contact Coach Jackson at 561-763-6078.'});
         }else{pbox.textContent='We will email you payment instructions within 1 business day.'}
       });
-      slot._setProgram=function(v){sel.value=v;sel.dispatchEvent(new Event('change'))};
+      slot._setProgram=function(v){setOnline(v);sel.value=v;sel.dispatchEvent(new Event('change'))};
       return;
     }
     slot.appendChild(document.getElementById('regtpl').content.cloneNode(true));
